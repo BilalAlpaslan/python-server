@@ -1,17 +1,25 @@
 
 from response import Response
-from server import Server
+from routes import Router
+from application import Application
 
-server = Server("localhost", 8000)
+app = Application("localhost", 8000)
+
+router = Router()
 
 
-while True:
-    request, clientsocket, address = server.accept()
+@router.get("/")
+def index(request):
+    return Response(body="Hello World!", status_code=200, headers={"Header": "Value"})
 
-    path = request.split(" ")[1]
+@router.get("/about")
+def about(request):
+    return Response(body="About page", status_code=200, headers={"Header": "Value"})
 
-    html = f"""<html><head><title>Test</title></head><body><h1>Path: {path}</h1></body></html>"""
+@router.get("/contact")
+def contact(request):
+    return Response(body="Contact page", status_code=200, headers={"Header": "Value"})
 
-    Response(body=html).send(clientsocket)
 
-    clientsocket.close()
+app.router.add_router(router)
+app.run()

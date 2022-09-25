@@ -9,7 +9,6 @@ class Server:
         self._server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self._server.bind((self.host, self.port))
         self._server.listen(5)
-        print(f"Server started on port {self.port}")
 
     def accept(self):
         clientsocket, address = self._server.accept()
