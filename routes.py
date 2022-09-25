@@ -13,7 +13,7 @@ class Route:
 
 
 class Router:
-    def __init__(self, routes: list = None):
+    def __init__(self, routes: list = []):
         self.routes = routes
 
     def find_route(self, path, method):
@@ -26,7 +26,7 @@ class Router:
         self.routes.append(Route(path, methods, handler))
 
     def add_router(self, router):
-        self.routes.update(router.routes)
+        self.routes.extend(router.routes)
 
     def get(self, path):
         def wrapper(handler):
