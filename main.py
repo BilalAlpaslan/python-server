@@ -1,7 +1,7 @@
 
-from response import Response
-from routes import Router
-from application import Application
+from pythonserver.response import Response
+from pythonserver.routes import Router
+from pythonserver.application import Application
 
 app = Application("localhost", 8000)
 

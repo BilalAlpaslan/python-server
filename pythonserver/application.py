@@ -1,6 +1,6 @@
-from server import Server
-from routes import Router
-from response import Response
+from pythonserver.server import Server
+from pythonserver.routes import Router
+from pythonserver.response import Response
 
 
 class Application:
