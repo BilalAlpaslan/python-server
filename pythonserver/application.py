@@ -11,7 +11,7 @@ class Application:
 
     def run(self, host="localhost", port=8000, debug=True):
         server = Server(host, port)
-        
+
         if debug:
             print(f"Running {self.name} on http://{host}:{port}")
 

@@ -39,7 +39,7 @@ class Router:
         def wrapper(request, *args, **kwargs):
             return handler(request, *args, **kwargs)
         self.add_route(path, ["POST"], wrapper)
-    
+
     def put(self, path, handler):
         def wrapper(request, *args, **kwargs):
             return handler(request, *args, **kwargs)
@@ -78,5 +78,5 @@ class Router:
     def any(self, path, handler):
         def wrapper(request, *args, **kwargs):
             return handler(request, *args, **kwargs)
-        self.add_route(path, ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD", "CONNECT", "TRACE"], wrapper)
-
+        self.add_route(path,
+                       ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS", "HEAD", "CONNECT", "TRACE"], wrapper)

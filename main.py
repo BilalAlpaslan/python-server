@@ -1,5 +1,5 @@
 
-from pythonserver import  Response, Router, Application
+from pythonserver import Response, Router, Application
 
 app = Application("localhost", 8000)
 
@@ -10,9 +10,11 @@ router = Router()
 def index(request):
     return Response(body="Hello World!", status_code=200, headers={"Header": "Value"})
 
+
 @router.get("/about")
 def about(request):
     return Response(body="About page", status_code=200, headers={"Header": "Value"})
+
 
 @router.get("/contact")
 def contact(request):
