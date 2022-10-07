@@ -16,3 +16,6 @@ class Server:
         path = request.split(" ")[1]
         print(f"Connection from {address} has been established!, path: {path}")
         return request, clientsocket, address
+    
+    def close(self):
+        self._server.close()
