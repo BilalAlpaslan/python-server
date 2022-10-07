@@ -10,13 +10,22 @@ class Application:
         self.router = Router()
 
     def run(self, host="localhost", port=8000, debug=True):
-        server = Server(host, port)
+        self.host = host
+        self.port = port
+        self.debug = debug
+        self.server = Server(self.host, self.port)
 
-        if debug:
-            print(f"Running {self.name} on http://{host}:{port}")
+        # run _run method in a subprocess
+        self._run()
+
+    def _run(self):
+
+        if self.debug:
+            print(
+                f"Running {self.name} on http://{self.host}:{self.port} (CTRL + C to quit)")
 
         while True:
-            request, clientsocket, address = server.accept()
+            request, clientsocket, address = self.server.accept()
 
             method = request.split(" ")[0]
             path = request.split(" ")[1]
