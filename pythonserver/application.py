@@ -1,3 +1,4 @@
+import threading
 from pythonserver.server import Server
 from pythonserver.routes import Router
 from pythonserver.response import Response
@@ -15,8 +16,14 @@ class Application:
         self.debug = debug
         self.server = Server(self.host, self.port)
 
-        # run _run method in a subprocess
-        self._run()
+        thread = threading.Thread(target=self._run)
+        thread.start()
+        try:
+            while True:
+                pass
+        except KeyboardInterrupt:
+            print("Server stopped")
+            self.server.close()
 
     def _run(self):
 
