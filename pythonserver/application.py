@@ -40,6 +40,9 @@ class Application:
     def any(self, *args, **kwargs):
         return self.router.any(*args, **kwargs)
 
+    def add_router(self, router):
+        self.router.add_router(router)
+
     def run(self, host="localhost", port=8000, debug=True):
         self.host = host
         self.port = port
