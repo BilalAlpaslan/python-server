@@ -10,6 +10,36 @@ class Application:
         self.version = version
         self.router = Router()
 
+    def get(self, *args, **kwargs):
+        return self.router.get(*args, **kwargs)
+
+    def post(self, *args, **kwargs):
+        return self.router.post(*args, **kwargs)
+
+    def put(self, *args, **kwargs):
+        return self.router.put(*args, **kwargs)
+
+    def delete(self, *args, **kwargs):
+        return self.router.delete(*args, **kwargs)
+
+    def patch(self, *args, **kwargs):
+        return self.router.patch(*args, **kwargs)
+
+    def options(self, *args, **kwargs):
+        return self.router.options(*args, **kwargs)
+
+    def head(self, *args, **kwargs):
+        return self.router.head(*args, **kwargs)
+
+    def connect(self, *args, **kwargs):
+        return self.router.connect(*args, **kwargs)
+
+    def trace(self, *args, **kwargs):
+        return self.router.trace(*args, **kwargs)
+
+    def any(self, *args, **kwargs):
+        return self.router.any(*args, **kwargs)
+
     def run(self, host="localhost", port=8000, debug=True):
         self.host = host
         self.port = port
