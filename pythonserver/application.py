@@ -57,6 +57,8 @@ class Application:
         except KeyboardInterrupt:
             print("Server stopped")
             self.server.close()
+            # kill the thread
+            exit(0)
 
     def _run(self):
 
